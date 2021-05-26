@@ -135,6 +135,8 @@
     });
     if (!res.ok) {
       console.error('event not sent');
+    }else{
+      console.log(res)
     }
   }
 })();
