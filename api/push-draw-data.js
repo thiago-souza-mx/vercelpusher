@@ -20,7 +20,7 @@ module.exports = async (req, res) => {
     await new Promise((resolve, reject) => {
       pusher.trigger(
         'msg',
-        'msg-events',
+        'msg-event',
         {message: JSON.stringify(req.body) },
         err => {
           if (err) return reject(err);
