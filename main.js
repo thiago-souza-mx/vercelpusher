@@ -12,8 +12,8 @@
 
   channel.bind('drawing', onDrawingEvent);
 
-  var channel = pusher.subscribe('msg');
-  channel.bind('msg-event', function(data) {
+  var channel2 = pusher.subscribe('msg');
+  channel2.bind('msg-event', function(data) {
     console.log(JSON.stringify(data));
   });
   let current = {
