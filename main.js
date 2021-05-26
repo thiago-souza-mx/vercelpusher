@@ -5,8 +5,8 @@
   let colors = document.querySelectorAll('.color');
   let context = canvas.getContext('2d');
 
-  let pusher = new Pusher('2a81e2e82be1a9d76433', {
-    cluster: 'us2',
+  var pusher = new Pusher('9bddcbfe0d2b4ce610cd', {
+    cluster: 'us2'
   });
   let channel = pusher.subscribe('drawing-events');
 
