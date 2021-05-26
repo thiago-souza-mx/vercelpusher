@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
       pusher.trigger(
         'msg',
         'msg-event',
-        {message: JSON.stringify(req.body) },
+        {message:req.body},
         err => {
           if (err) return reject(err);
           resolve();
