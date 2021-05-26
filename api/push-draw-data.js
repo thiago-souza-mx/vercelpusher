@@ -15,13 +15,13 @@ const pusher = new Pusher({
 });
 
 module.exports = async (req, res) => {
-  const { x0, x1, y0, y1, color } = req.body;
+ 
   try {
     await new Promise((resolve, reject) => {
       pusher.trigger(
-        'drawing-events',
-        'drawing',
-        { x0, x1, y0, y1, color },
+        'msg',
+        'msg-events',
+        {message: JSON.stringify(req.body) },
         err => {
           if (err) return reject(err);
           resolve();

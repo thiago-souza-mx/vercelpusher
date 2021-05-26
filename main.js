@@ -12,6 +12,10 @@
 
   channel.bind('drawing', onDrawingEvent);
 
+  var channel = pusher.subscribe('msg');
+  channel.bind('msg-event', function(data) {
+    console.log(JSON.stringify(data));
+  });
   let current = {
     color: 'black',
   };
