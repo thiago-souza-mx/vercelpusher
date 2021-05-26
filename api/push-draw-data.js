@@ -16,20 +16,23 @@ const pusher = new Pusher({
 
 module.exports = async (req, res) => {
  
-  try {
-    await new Promise((resolve, reject) => {
-      pusher.trigger(
-        'msg',
-        'msg-event',
-        {message:req.body},
-        err => {
-          if (err) return reject(err);
-          resolve();
-        }
-      );
-    });
-    res.status(200).end('sent event succesfully');
-  } catch (e) {
-    console.log(e.message);
+  if(req.query.session){
+    try {
+      await new Promise((resolve, reject) => {
+        pusher.trigger(
+          'msg',
+          req.query.session,
+          {message:req.body},
+          err => {
+            if (err) return reject(err);
+            resolve();
+          }
+        );
+      });
+      res.status(200).end('sent event succesfully');
+    } catch (e) {
+      console.log(e.message);
+    }
   }
+  res.status(404);
 };
